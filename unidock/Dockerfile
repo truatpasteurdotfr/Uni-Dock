@@ -3,10 +3,10 @@
 
 FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 
-COPY . /opt/unidock
-
 RUN apt-get update && apt install -y cmake \
     libboost-system-dev libboost-thread-dev libboost-serialization-dev libboost-filesystem-dev libboost-program-options-dev libboost-timer-dev
+
+COPY unidock /opt/unidock
 
 RUN cd /opt/unidock && \
     cmake -B build && \
